@@ -32,6 +32,8 @@ namespace My_Pet
         {
 
             services.AddControllers();
+            services.AddAutoMapper(typeof(Startup));
+            
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My_Pet", Version = "v1" });

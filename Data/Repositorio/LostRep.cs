@@ -24,6 +24,8 @@ namespace My_Pet.Data.Repositorio
         {
             var query = _mapper.Map<Lost>(model);
 
+            query.CreatedAt = DateTime.Now;
+
             await _context.Lost.AddAsync(query);
             
             await _context.SaveChangesAsync();

@@ -23,7 +23,9 @@ namespace My_Pet.Data.Repositorio
         public async Task Post(AdoptionRequest model)
         {
             var query = _mapper.Map<Adoption>(model);
-
+            
+            query.CreatedAt = DateTime.Now;
+            
             await _context.Adoption.AddAsync(query);
             
             await _context.SaveChangesAsync();

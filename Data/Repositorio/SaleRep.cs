@@ -30,9 +30,15 @@ namespace My_Pet.Data.Repositorio
             
             await _context.SaveChangesAsync();
         }
-        public Task Put(SaleRequest model)
+        public async Task Put(SaleRequest model)
         {
-            throw new NotImplementedException();
+            var query = _mapper.Map<Sale>(model);
+
+            query.UpdatedAt = DateTime.Now;
+
+            _context.Sale.Update(query);
+
+            await _context.SaveChangesAsync();
         }
         public Task<List<SaleDTO>> GetAll()
         {

@@ -30,9 +30,15 @@ namespace My_Pet.Data.Repositorio
             
             await _context.SaveChangesAsync();
         }
-        public Task Put(LostRequest model)
+        public async Task Put(LostRequest model)
         {
-            throw new NotImplementedException();
+            var query = _mapper.Map<Lost>(model);
+
+            query.UpdatedAt = DateTime.Now;
+
+            _context.Lost.Update(query);
+
+            await _context.SaveChangesAsync();
         }
         public Task<List<LostDTO>> GetAll()
         {

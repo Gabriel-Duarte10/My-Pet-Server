@@ -30,9 +30,15 @@ namespace My_Pet.Data.Repositorio
             
             await _context.SaveChangesAsync();
         }
-        public Task Put(AdoptionRequest model)
+        public async Task Put(AdoptionRequest model)
         {
-            throw new NotImplementedException();
+            var query = _mapper.Map<Adoption>(model);
+
+            query.UpdatedAt = DateTime.Now;
+
+            _context.Adoption.Update(query);
+
+            await _context.SaveChangesAsync();
         }
         public Task<List<AdoptionDTO>> GetAll()
         {

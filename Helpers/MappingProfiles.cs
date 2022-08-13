@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using My_Pet.Data.Dto;
 using My_Pet.Data.Requests;
 using My_Pet.Models;
 
@@ -13,18 +14,19 @@ namespace My_Pet.Helpers
         public MappingProfiles()
         {
             CreateMap<Adoption, AdoptionRequest>().ReverseMap();
-            // CreateMap<Adoption, AdoptionRequest>().ReverseMap();
+            CreateMap<Adoption, AdoptionDTO>().ReverseMap();
 
             CreateMap<Lost, LostRequest>().ReverseMap();
-            // CreateMap<Adoption, AdoptionRequest>().ReverseMap();
+            CreateMap<Lost, LostDTO>().ReverseMap();
 
             CreateMap<Reproduction, ReproductionRequest>().ReverseMap();
-            // CreateMap<Adoption, AdoptionRequest>().ReverseMap();
+            CreateMap<Reproduction, ReproductionDTO>().ReverseMap();
 
             CreateMap<Rescue, RescueRequest>().ReverseMap();
-            // CreateMap<Adoption, AdoptionRequest>().ReverseMap();
+            CreateMap<Rescue, RescueDTO>().ReverseMap();
 
             CreateMap<Sale, SaleRequest>().ReverseMap();
+            CreateMap<Sale, SaleDTO>().ReverseMap();
 
         }
     }

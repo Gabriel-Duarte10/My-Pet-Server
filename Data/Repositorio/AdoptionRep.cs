@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
+using Microsoft.EntityFrameworkCore;
 using My_Pet.Data.Context;
 using My_Pet.Data.Dto;
 using My_Pet.Data.Interfaces;
@@ -40,9 +41,10 @@ namespace My_Pet.Data.Repositorio
 
             await _context.SaveChangesAsync();
         }
-        public Task<List<AdoptionDTO>> GetAll()
+        public async Task<List<AdoptionDTO>> GetAll()
         {
-            throw new NotImplementedException();
+           var query = await _context.Adoption.Where(x => x.DeleteAt == null).ToListAsync();
+           return _mapper.Map<List<AdoptionDTO>>(query); 
         }
 
         public Task<AdoptionDTO> GetById(int id)

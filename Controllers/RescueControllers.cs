@@ -42,10 +42,10 @@ namespace My_Pet.Controllers
         {
             try
             {
-                var equipe = await _model.GetAll();
-                if (equipe == null) return NoContent();
+                var query = await _model.GetAll();
+                if (query == null) return NoContent();
             
-                return Ok(equipe);
+                return Ok(query);
             }
             catch (Exception ex)
             {
@@ -58,10 +58,10 @@ namespace My_Pet.Controllers
         {
             try
             {   
-                var type = await _model.GetById(id);
-                if (type == null) return NoContent();
+                var query = await _model.GetById(id);
+                if (query == null) return NoContent();
 
-                return Ok(type);
+                return Ok(query);
             }
              catch (Exception ex)
             {

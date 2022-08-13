@@ -47,9 +47,10 @@ namespace My_Pet.Data.Repositorio
            
            return _mapper.Map<List<RescueDTO>>(query);
         }
-        public Task<RescueDTO> GetById(int id)
+        public async Task<RescueDTO> GetById(int id)
         {
-            throw new NotImplementedException();
+            var query = await _context.Rescue.Where(x => x.DeleteAt == null && x.Id == id).FirstOrDefaultAsync();
+            return _mapper.Map<RescueDTO>(query);
         }
         public async Task Delete(int id)
         {

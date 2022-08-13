@@ -48,9 +48,11 @@ namespace My_Pet.Data.Repositorio
         {
             throw new NotImplementedException();
         }
-        public Task Delete(int id)
+        public async Task Delete(int id)
         {
-            throw new NotImplementedException();
+            _context.Rescue.Where(x => x.Id == id).FirstOrDefault().DeleteAt = DateTime.Now;
+            
+            await _context.SaveChangesAsync();
         }
     }
 }

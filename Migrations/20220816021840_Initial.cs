@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace My_Pet.Migrations
 {
-    public partial class InitialMigrations : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -15,6 +15,7 @@ namespace My_Pet.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     namePet = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    species = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     breed = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     monthBirth = table.Column<int>(type: "int", nullable: false),
@@ -50,6 +51,7 @@ namespace My_Pet.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     namePet = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    species = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     breed = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     monthBirth = table.Column<int>(type: "int", nullable: false),
@@ -85,6 +87,7 @@ namespace My_Pet.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     namePet = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    species = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     breed = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     monthBirth = table.Column<int>(type: "int", nullable: false),
@@ -118,6 +121,7 @@ namespace My_Pet.Migrations
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    species = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     district = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     road = table.Column<string>(type: "nvarchar(max)", nullable: true),
@@ -151,6 +155,7 @@ namespace My_Pet.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     namePet = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     genre = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    species = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     breed = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     size = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     price = table.Column<double>(type: "float", nullable: false),

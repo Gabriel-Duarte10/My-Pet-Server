@@ -10,8 +10,8 @@ using My_Pet.Data.Context;
 namespace My_Pet.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220809031037_InitialMigrations")]
-    partial class InitialMigrations
+    [Migration("20220816021840_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -56,6 +56,9 @@ namespace My_Pet.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("yearBirth")
@@ -116,6 +119,9 @@ namespace My_Pet.Migrations
                     b.Property<string>("size")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("species")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
@@ -174,6 +180,9 @@ namespace My_Pet.Migrations
                     b.Property<string>("size")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("species")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
@@ -221,6 +230,9 @@ namespace My_Pet.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -279,6 +291,9 @@ namespace My_Pet.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("yearBirth")

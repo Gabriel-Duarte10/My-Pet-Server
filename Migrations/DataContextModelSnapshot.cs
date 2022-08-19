@@ -56,6 +56,9 @@ namespace My_Pet.Migrations
                     b.Property<string>("size")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("species")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
@@ -112,6 +115,9 @@ namespace My_Pet.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("yearBirth")
@@ -172,6 +178,9 @@ namespace My_Pet.Migrations
                     b.Property<string>("size")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("species")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
@@ -219,6 +228,9 @@ namespace My_Pet.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -277,6 +289,9 @@ namespace My_Pet.Migrations
                         .HasColumnType("float");
 
                     b.Property<string>("size")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("yearBirth")

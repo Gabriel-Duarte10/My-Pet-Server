@@ -5,8 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using My_Pet.Data.Context;
+using My_Pet.Data.Dto;
 using My_Pet.Data.Interfaces;
 using My_Pet.Data.Requests;
+using static My_Pet.Data.Dto.Commons;
 
 namespace My_Pet.Controllers
 {
@@ -37,14 +39,40 @@ namespace My_Pet.Controllers
             }
         }
         [HttpGet()]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAll(
+            [FromQuery] int page, 
+            [FromQuery] int perPage,
+            [FromQuery] SaleFilter? filters
+        )
         {
             try
             {
                 var query = await _model.GetAll();
                 if (query == null) return NoContent();
-            
-                return Ok(query);
+                
+                query = query
+                .Where(x => filters.species != null ? (x.species == filters.species) : x.id > 0)
+                .Where(x => filters.genre != null ? (x.genre == filters.genre) : x.id > 0)
+                .Where(x => filters.breed != null ? (x.breed == filters.breed) : x.id > 0)
+                .Where(x => filters.size != null ? (x.size == filters.size) : x.id > 0)
+                .Where(x => filters.ageMin != null ? ((DateTime.Now.Year - x.yearBirth) >= filters.ageMin) : x.id > 0)
+                .Where(x => filters.ageMax != null ? ((DateTime.Now.Year - x.yearBirth) >= filters.ageMax) : x.id > 0)
+                .Where(x => filters.priceMin != null ? (x.price >= filters.priceMin) : x.id > 0)
+                .Where(x => filters.priceMax != null ? (x.price <= filters.priceMax) : x.id > 0)
+                .Where(x => filters.district != null ? (x.district == filters.district) : x.id > 0)
+                .ToList();
+
+                var _pagination = new Pagination<SaleDTO, SaleFilter>();
+
+                _pagination.Page = page;
+                _pagination.PerPage = perPage;
+                _pagination.TotalItems = query.Count();
+                _pagination.TotalPages = (int)Math.Ceiling((double)query.Count()/perPage);
+                
+                _pagination.Data = query.Skip(((page-1)*perPage)).Take(perPage).ToList();
+
+                return Ok(_pagination);
+
             }
             catch (Exception ex)
             {

@@ -7,6 +7,7 @@ namespace My_Pet.Models
 {
     public class Rescue: BaseEntity
     {
+        public String species { get; set; }
         public String size { get; set; }
         public String district { get; set; }
         public String road { get; set; }

@@ -44,6 +44,38 @@ namespace My_Pet.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Announcement",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    nameAnno = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    phoneAnno = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    emailAnno = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    districAnno = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: true),
+                    DeleteAt = table.Column<DateTime>(type: "datetime2", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Announcement", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "AnnouncementImage",
+                columns: table => new
+                {
+                    idAnnouncement = table.Column<int>(type: "int", nullable: false),
+                    image = table.Column<byte[]>(type: "varbinary(900)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AnnouncementImage", x => new { x.idAnnouncement, x.image });
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Lost",
                 columns: table => new
                 {
@@ -192,6 +224,12 @@ namespace My_Pet.Migrations
 
             migrationBuilder.DropTable(
                 name: "AdoptionImage");
+
+            migrationBuilder.DropTable(
+                name: "Announcement");
+
+            migrationBuilder.DropTable(
+                name: "AnnouncementImage");
 
             migrationBuilder.DropTable(
                 name: "Lost");

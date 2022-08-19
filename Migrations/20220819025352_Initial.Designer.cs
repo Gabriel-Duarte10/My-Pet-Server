@@ -10,7 +10,7 @@ using My_Pet.Data.Context;
 namespace My_Pet.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220816021840_Initial")]
+    [Migration("20220819025352_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -80,6 +80,55 @@ namespace My_Pet.Migrations
                     b.HasKey("idAdoption", "image");
 
                     b.ToTable("AdoptionImage");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.Announcement", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("districAnno")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("emailAnno")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("nameAnno")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phoneAnno")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Announcement");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.AnnouncementImage", b =>
+                {
+                    b.Property<int>("idAnnouncement")
+                        .HasColumnType("int");
+
+                    b.Property<byte[]>("image")
+                        .HasColumnType("varbinary(900)");
+
+                    b.HasKey("idAnnouncement", "image");
+
+                    b.ToTable("AnnouncementImage");
                 });
 
             modelBuilder.Entity("My_Pet.Models.Lost", b =>

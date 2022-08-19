@@ -20,7 +20,8 @@ namespace My_Pet.Data.Context
         public DbSet<RescueImage> RescueImage { get; set; }
         public DbSet<Sale> Sale { get; set; }
         public DbSet<SaleImage> SaleImage { get; set; }
-
+        public DbSet<Announcement> Announcement { get; set; }
+        public DbSet<AnnouncementImage> AnnouncementImage { get; set; }
          protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -34,7 +35,9 @@ namespace My_Pet.Data.Context
             modelBuilder.Entity<RescueImage>()
                 .HasKey(x => new {x.idRescue, x.image});
             modelBuilder.Entity<SaleImage>()
-                .HasKey(x => new {x.idSale, x.image});          
+                .HasKey(x => new {x.idSale, x.image});
+            modelBuilder.Entity<AnnouncementImage>()
+                .HasKey(x => new {x.idAnnouncement, x.image});          
         }
     }
 }

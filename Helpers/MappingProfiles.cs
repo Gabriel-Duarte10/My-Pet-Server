@@ -28,6 +28,9 @@ namespace My_Pet.Helpers
             CreateMap<Sale, SaleRequest>().ReverseMap();
             CreateMap<Sale, SaleDTO>().ReverseMap();
 
+            CreateMap<Announcement, AnnouncementRequest>().ReverseMap();
+            CreateMap<Announcement, AnnouncementDTO>().ReverseMap();
+
         }
     }
 }

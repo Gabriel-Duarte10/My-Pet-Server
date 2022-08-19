@@ -49,7 +49,8 @@ namespace My_Pet
             services.AddScoped<IReproduction, ReproductionRep>();
             services.AddScoped<IRescue, RescueRep>();
             services.AddScoped<ISale, SaleRep>();
-
+            services.AddScoped<IAnnouncement, AnnouncementRep>();
+           
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",

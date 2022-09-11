@@ -58,5 +58,30 @@ namespace My_Pet.Data.Repositorio
             
             await _context.SaveChangesAsync();           
         }
+
+        public async Task PostImages(int id, List<ImageDto> imagesDto)
+        {
+            foreach (var i in imagesDto)
+            {
+                await _context.AdoptionImage.AddAsync(new AdoptionImage(){
+                    idAdoption = id,
+                    urlImageAzure = i.UrlImage,
+                    nameImageAzure = i.NameImage
+                });   
+                await _context.SaveChangesAsync();
+            }
+        }
+        public async Task<List<AdoptionImage>> GetAllImages(int id)
+        {
+           return await _context.AdoptionImage.Where(x => x.idAdoption == id).ToListAsync();
+        }
+
+        public async Task DeleteImages(int id)
+        {
+            var images = await _context.AdoptionImage.Where(x => x.idAdoption == id).ToListAsync();
+            _context.AdoptionImage.RemoveRange(images);
+            await _context.SaveChangesAsync();
+        }
+
     }
 }

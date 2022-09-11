@@ -8,6 +8,7 @@ namespace My_Pet.Models
     public class RescueImage
     {
         public int idRescue { get; set; }
-        public byte[] image { get; set; }
+        public string urlImageAzure { get; set; }
+        public string nameImageAzure { get; set; }
     }
 }

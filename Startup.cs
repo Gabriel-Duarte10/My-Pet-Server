@@ -15,6 +15,7 @@ using Microsoft.OpenApi.Models;
 using My_Pet.Data.Context;
 using My_Pet.Data.Interfaces;
 using My_Pet.Data.Repositorio;
+using My_Pet.Services;
 
 namespace My_Pet
 {
@@ -44,13 +45,14 @@ namespace My_Pet
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
+            services.AddScoped<ImageService>();
             services.AddScoped<IAdoption, AdoptionRep>();
             services.AddScoped<ILost, LostRep>();
             services.AddScoped<IReproduction, ReproductionRep>();
             services.AddScoped<IRescue, RescueRep>();
             services.AddScoped<ISale, SaleRep>();
             services.AddScoped<IAnnouncement, AnnouncementRep>();
-           
+
             services.AddCors(options =>
             {
                 options.AddPolicy("CorsPolicy",

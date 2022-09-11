@@ -58,5 +58,20 @@ namespace My_Pet.Data.Repositorio
             
             await _context.SaveChangesAsync();
         }
+
+        public Task<List<SaleImage>> GetAllImages(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task DeleteImages(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task PostImages(int id, List<ImageDto> imagesDto)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

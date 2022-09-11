@@ -27,17 +27,17 @@ namespace My_Pet.Data.Context
             base.OnModelCreating(modelBuilder);
   
             modelBuilder.Entity<AdoptionImage>()
-                .HasKey(x => new {x.idAdoption, x.image});
+                .HasKey(x => new {x.idAdoption, x.nameImageAzure, x.urlImageAzure});
             modelBuilder.Entity<LostImage>()
-                .HasKey(x => new {x.idLost, x.image});
+                .HasKey(x => new {x.idLost, x.nameImageAzure, x.urlImageAzure});
             modelBuilder.Entity<ReproductionImage>()
-                .HasKey(x => new {x.idReproduction, x.image});
+                .HasKey(x => new {x.idReproduction, x.nameImageAzure, x.urlImageAzure});
             modelBuilder.Entity<RescueImage>()
-                .HasKey(x => new {x.idRescue, x.image});
+                .HasKey(x => new {x.idRescue, x.nameImageAzure, x.urlImageAzure});
             modelBuilder.Entity<SaleImage>()
-                .HasKey(x => new {x.idSale, x.image});
+                .HasKey(x => new {x.idSale, x.nameImageAzure, x.urlImageAzure});
             modelBuilder.Entity<AnnouncementImage>()
-                .HasKey(x => new {x.idAnnouncement, x.image});          
+                .HasKey(x => new {x.idAnnouncement, x.nameImageAzure, x.urlImageAzure});          
         }
     }
 }

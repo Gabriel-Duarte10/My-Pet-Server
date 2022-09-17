@@ -10,7 +10,7 @@ using My_Pet.Data.Context;
 namespace My_Pet.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220911065330_Initial")]
+    [Migration("20220917073248_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -74,13 +74,13 @@ namespace My_Pet.Migrations
                     b.Property<int>("idAdoption")
                         .HasColumnType("int");
 
-                    b.Property<string>("nameImageAzure")
+                    b.Property<string>("nameImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("urlImageAzure")
+                    b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idAdoption", "nameImageAzure", "urlImageAzure");
+                    b.HasKey("idAdoption", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("AdoptionImage");
                 });
@@ -126,13 +126,13 @@ namespace My_Pet.Migrations
                     b.Property<int>("idAnnouncement")
                         .HasColumnType("int");
 
-                    b.Property<string>("nameImageAzure")
+                    b.Property<string>("nameImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("urlImageAzure")
+                    b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idAnnouncement", "nameImageAzure", "urlImageAzure");
+                    b.HasKey("idAnnouncement", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("AnnouncementImage");
                 });
@@ -190,13 +190,13 @@ namespace My_Pet.Migrations
                     b.Property<int>("idLost")
                         .HasColumnType("int");
 
-                    b.Property<string>("nameImageAzure")
+                    b.Property<string>("nameImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("urlImageAzure")
+                    b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idLost", "nameImageAzure", "urlImageAzure");
+                    b.HasKey("idLost", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("LostImage");
                 });
@@ -254,13 +254,13 @@ namespace My_Pet.Migrations
                     b.Property<int>("idReproduction")
                         .HasColumnType("int");
 
-                    b.Property<string>("nameImageAzure")
+                    b.Property<string>("nameImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("urlImageAzure")
+                    b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idReproduction", "nameImageAzure", "urlImageAzure");
+                    b.HasKey("idReproduction", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("ReproductionImage");
                 });
@@ -306,13 +306,13 @@ namespace My_Pet.Migrations
                     b.Property<int>("idRescue")
                         .HasColumnType("int");
 
-                    b.Property<string>("nameImageAzure")
+                    b.Property<string>("nameImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("urlImageAzure")
+                    b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idRescue", "nameImageAzure", "urlImageAzure");
+                    b.HasKey("idRescue", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("RescueImage");
                 });
@@ -373,13 +373,13 @@ namespace My_Pet.Migrations
                     b.Property<int>("idSale")
                         .HasColumnType("int");
 
-                    b.Property<string>("nameImageAzure")
+                    b.Property<string>("nameImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.Property<string>("urlImageAzure")
+                    b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idSale", "nameImageAzure", "urlImageAzure");
+                    b.HasKey("idSale", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("SaleImage");
                 });

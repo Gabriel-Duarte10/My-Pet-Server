@@ -27,17 +27,17 @@ namespace My_Pet.Data.Context
             base.OnModelCreating(modelBuilder);
   
             modelBuilder.Entity<AdoptionImage>()
-                .HasKey(x => new {x.idAdoption, x.nameImageAzure, x.urlImageAzure});
+                .HasKey(x => new {x.idAdoption, x.nameImageFireBase, x.urlImageFireBase});
             modelBuilder.Entity<LostImage>()
-                .HasKey(x => new {x.idLost, x.nameImageAzure, x.urlImageAzure});
+                .HasKey(x => new {x.idLost, x.nameImageFireBase, x.urlImageFireBase});
             modelBuilder.Entity<ReproductionImage>()
-                .HasKey(x => new {x.idReproduction, x.nameImageAzure, x.urlImageAzure});
+                .HasKey(x => new {x.idReproduction, x.nameImageFireBase, x.urlImageFireBase});
             modelBuilder.Entity<RescueImage>()
-                .HasKey(x => new {x.idRescue, x.nameImageAzure, x.urlImageAzure});
+                .HasKey(x => new {x.idRescue, x.nameImageFireBase, x.urlImageFireBase});
             modelBuilder.Entity<SaleImage>()
-                .HasKey(x => new {x.idSale, x.nameImageAzure, x.urlImageAzure});
+                .HasKey(x => new {x.idSale, x.nameImageFireBase, x.urlImageFireBase});
             modelBuilder.Entity<AnnouncementImage>()
-                .HasKey(x => new {x.idAnnouncement, x.nameImageAzure, x.urlImageAzure});          
+                .HasKey(x => new {x.idAnnouncement, x.nameImageFireBase, x.urlImageFireBase});          
         }
     }
 }

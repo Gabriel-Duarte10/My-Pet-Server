@@ -8,7 +8,7 @@ namespace My_Pet.Models
     public class SaleImage
     {
         public int idSale { get; set; }
-        public string urlImageAzure { get; set; }
-        public string nameImageAzure { get; set; }
+        public string urlImageFireBase { get; set; }
+        public string nameImageFireBase { get; set; }
     }
 }

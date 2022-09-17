@@ -138,10 +138,10 @@ namespace My_Pet.Controllers
                 var imagesDto = await _model.GetAllImages(id);
                 if(imagesDto.Count > 0)
                 {
-                        _imagesService.DeleteImagesAzure(imagesDto);
+                        _imagesService.DeleteImagesFireBase(imagesDto);
                         await _model.DeleteImages(id);
                 }   
-                var newImages = _imagesService.UploadImageAzure(files);
+                var newImages = _imagesService.UploadImageFireBase(files).Result;
                 await _model.PostImages(id, newImages);
             }
             catch (Exception e)

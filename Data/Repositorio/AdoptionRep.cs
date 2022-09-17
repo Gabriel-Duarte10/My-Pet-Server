@@ -65,8 +65,8 @@ namespace My_Pet.Data.Repositorio
             {
                 await _context.AdoptionImage.AddAsync(new AdoptionImage(){
                     idAdoption = id,
-                    urlImageAzure = i.UrlImage,
-                    nameImageAzure = i.NameImage
+                    urlImageFireBase = i.UrlImage,
+                    nameImageFireBase = i.NameImage
                 });   
                 await _context.SaveChangesAsync();
             }

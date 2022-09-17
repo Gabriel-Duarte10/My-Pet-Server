@@ -36,12 +36,12 @@ namespace My_Pet.Migrations
                 columns: table => new
                 {
                     idAdoption = table.Column<int>(type: "int", nullable: false),
-                    urlImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    nameImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    urlImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    nameImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AdoptionImage", x => new { x.idAdoption, x.nameImageAzure, x.urlImageAzure });
+                    table.PrimaryKey("PK_AdoptionImage", x => new { x.idAdoption, x.nameImageFireBase, x.urlImageFireBase });
                 });
 
             migrationBuilder.CreateTable(
@@ -69,12 +69,12 @@ namespace My_Pet.Migrations
                 columns: table => new
                 {
                     idAnnouncement = table.Column<int>(type: "int", nullable: false),
-                    urlImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    nameImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    urlImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    nameImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_AnnouncementImage", x => new { x.idAnnouncement, x.nameImageAzure, x.urlImageAzure });
+                    table.PrimaryKey("PK_AnnouncementImage", x => new { x.idAnnouncement, x.nameImageFireBase, x.urlImageFireBase });
                 });
 
             migrationBuilder.CreateTable(
@@ -106,12 +106,12 @@ namespace My_Pet.Migrations
                 columns: table => new
                 {
                     idLost = table.Column<int>(type: "int", nullable: false),
-                    urlImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    nameImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    urlImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    nameImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_LostImage", x => new { x.idLost, x.nameImageAzure, x.urlImageAzure });
+                    table.PrimaryKey("PK_LostImage", x => new { x.idLost, x.nameImageFireBase, x.urlImageFireBase });
                 });
 
             migrationBuilder.CreateTable(
@@ -143,12 +143,12 @@ namespace My_Pet.Migrations
                 columns: table => new
                 {
                     idReproduction = table.Column<int>(type: "int", nullable: false),
-                    urlImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    nameImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    urlImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    nameImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_ReproductionImage", x => new { x.idReproduction, x.nameImageAzure, x.urlImageAzure });
+                    table.PrimaryKey("PK_ReproductionImage", x => new { x.idReproduction, x.nameImageFireBase, x.urlImageFireBase });
                 });
 
             migrationBuilder.CreateTable(
@@ -176,12 +176,12 @@ namespace My_Pet.Migrations
                 columns: table => new
                 {
                     idRescue = table.Column<int>(type: "int", nullable: false),
-                    urlImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    nameImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    urlImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    nameImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_RescueImage", x => new { x.idRescue, x.nameImageAzure, x.urlImageAzure });
+                    table.PrimaryKey("PK_RescueImage", x => new { x.idRescue, x.nameImageFireBase, x.urlImageFireBase });
                 });
 
             migrationBuilder.CreateTable(
@@ -214,12 +214,12 @@ namespace My_Pet.Migrations
                 columns: table => new
                 {
                     idSale = table.Column<int>(type: "int", nullable: false),
-                    urlImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false),
-                    nameImageAzure = table.Column<string>(type: "nvarchar(450)", nullable: false)
+                    urlImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    nameImageFireBase = table.Column<string>(type: "nvarchar(450)", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_SaleImage", x => new { x.idSale, x.nameImageAzure, x.urlImageAzure });
+                    table.PrimaryKey("PK_SaleImage", x => new { x.idSale, x.nameImageFireBase, x.urlImageFireBase });
                 });
         }
 

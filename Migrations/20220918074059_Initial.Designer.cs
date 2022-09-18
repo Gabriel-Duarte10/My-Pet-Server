@@ -10,7 +10,7 @@ using My_Pet.Data.Context;
 namespace My_Pet.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20220917073248_Initial")]
+    [Migration("20220918074059_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,7 +52,7 @@ namespace My_Pet.Migrations
                     b.Property<int>("monthBirth")
                         .HasColumnType("int");
 
-                    b.Property<string>("namePet")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("size")
@@ -61,17 +61,22 @@ namespace My_Pet.Migrations
                     b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Adoption");
                 });
 
             modelBuilder.Entity("My_Pet.Models.AdoptionImage", b =>
                 {
-                    b.Property<int>("idAdoption")
+                    b.Property<int>("id")
                         .HasColumnType("int");
 
                     b.Property<string>("nameImageFireBase")
@@ -80,7 +85,7 @@ namespace My_Pet.Migrations
                     b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idAdoption", "nameImageFireBase", "urlImageFireBase");
+                    b.HasKey("id", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("AdoptionImage");
                 });
@@ -110,20 +115,25 @@ namespace My_Pet.Migrations
                     b.Property<string>("emailAnno")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("nameAnno")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("phoneAnno")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Announcement");
                 });
 
             modelBuilder.Entity("My_Pet.Models.AnnouncementImage", b =>
                 {
-                    b.Property<int>("idAnnouncement")
+                    b.Property<int>("id")
                         .HasColumnType("int");
 
                     b.Property<string>("nameImageFireBase")
@@ -132,7 +142,7 @@ namespace My_Pet.Migrations
                     b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idAnnouncement", "nameImageFireBase", "urlImageFireBase");
+                    b.HasKey("id", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("AnnouncementImage");
                 });
@@ -168,7 +178,7 @@ namespace My_Pet.Migrations
                     b.Property<int>("monthBirth")
                         .HasColumnType("int");
 
-                    b.Property<string>("namePet")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("size")
@@ -177,17 +187,22 @@ namespace My_Pet.Migrations
                     b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Lost");
                 });
 
             modelBuilder.Entity("My_Pet.Models.LostImage", b =>
                 {
-                    b.Property<int>("idLost")
+                    b.Property<int>("id")
                         .HasColumnType("int");
 
                     b.Property<string>("nameImageFireBase")
@@ -196,7 +211,7 @@ namespace My_Pet.Migrations
                     b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idLost", "nameImageFireBase", "urlImageFireBase");
+                    b.HasKey("id", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("LostImage");
                 });
@@ -232,7 +247,7 @@ namespace My_Pet.Migrations
                     b.Property<int>("monthBirth")
                         .HasColumnType("int");
 
-                    b.Property<string>("namePet")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("size")
@@ -241,17 +256,22 @@ namespace My_Pet.Migrations
                     b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Reproduction");
                 });
 
             modelBuilder.Entity("My_Pet.Models.ReproductionImage", b =>
                 {
-                    b.Property<int>("idReproduction")
+                    b.Property<int>("id")
                         .HasColumnType("int");
 
                     b.Property<string>("nameImageFireBase")
@@ -260,7 +280,7 @@ namespace My_Pet.Migrations
                     b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idReproduction", "nameImageFireBase", "urlImageFireBase");
+                    b.HasKey("id", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("ReproductionImage");
                 });
@@ -296,14 +316,19 @@ namespace My_Pet.Migrations
                     b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Rescue");
                 });
 
             modelBuilder.Entity("My_Pet.Models.RescueImage", b =>
                 {
-                    b.Property<int>("idRescue")
+                    b.Property<int>("id")
                         .HasColumnType("int");
 
                     b.Property<string>("nameImageFireBase")
@@ -312,7 +337,7 @@ namespace My_Pet.Migrations
                     b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idRescue", "nameImageFireBase", "urlImageFireBase");
+                    b.HasKey("id", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("RescueImage");
                 });
@@ -348,7 +373,7 @@ namespace My_Pet.Migrations
                     b.Property<int>("monthBirth")
                         .HasColumnType("int");
 
-                    b.Property<string>("namePet")
+                    b.Property<string>("name")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("price")
@@ -360,17 +385,22 @@ namespace My_Pet.Migrations
                     b.Property<string>("species")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("userId")
+                        .HasColumnType("int");
+
                     b.Property<int>("yearBirth")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("userId");
 
                     b.ToTable("Sale");
                 });
 
             modelBuilder.Entity("My_Pet.Models.SaleImage", b =>
                 {
-                    b.Property<int>("idSale")
+                    b.Property<int>("id")
                         .HasColumnType("int");
 
                     b.Property<string>("nameImageFireBase")
@@ -379,9 +409,111 @@ namespace My_Pet.Migrations
                     b.Property<string>("urlImageFireBase")
                         .HasColumnType("nvarchar(450)");
 
-                    b.HasKey("idSale", "nameImageFireBase", "urlImageFireBase");
+                    b.HasKey("id", "nameImageFireBase", "urlImageFireBase");
 
                     b.ToTable("SaleImage");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.User", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<DateTime?>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DeleteAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("password")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("phone")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("type")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("User");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.Adoption", b =>
+                {
+                    b.HasOne("My_Pet.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.Announcement", b =>
+                {
+                    b.HasOne("My_Pet.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.Lost", b =>
+                {
+                    b.HasOne("My_Pet.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.Reproduction", b =>
+                {
+                    b.HasOne("My_Pet.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.Rescue", b =>
+                {
+                    b.HasOne("My_Pet.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
+                });
+
+            modelBuilder.Entity("My_Pet.Models.Sale", b =>
+                {
+                    b.HasOne("My_Pet.Models.User", "user")
+                        .WithMany()
+                        .HasForeignKey("userId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("user");
                 });
 #pragma warning restore 612, 618
         }

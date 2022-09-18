@@ -64,7 +64,7 @@ namespace My_Pet.Data.Repositorio
             foreach (var i in imagesDto)
             {
                 await _context.ReproductionImage.AddAsync(new ReproductionImage(){
-                    idReproduction = id,
+                    id = id,
                     urlImageFireBase = i.UrlImage,
                     nameImageFireBase = i.NameImage
                 });   
@@ -73,12 +73,12 @@ namespace My_Pet.Data.Repositorio
         }
         public async Task<List<ReproductionImage>> GetAllImages(int id)
         {
-           return await _context.ReproductionImage.Where(x => x.idReproduction == id).ToListAsync();
+           return await _context.ReproductionImage.Where(x => x.id == id).ToListAsync();
         }
 
         public async Task DeleteImages(int id)
         {
-            var images = await _context.ReproductionImage.Where(x => x.idReproduction == id).ToListAsync();
+            var images = await _context.ReproductionImage.Where(x => x.id == id).ToListAsync();
             _context.ReproductionImage.RemoveRange(images);
             await _context.SaveChangesAsync();
         }

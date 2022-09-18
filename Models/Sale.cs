@@ -7,7 +7,7 @@ namespace My_Pet.Models
 {
     public class Sale: BaseEntity
     {
-        public String namePet { get; set; }
+        public String name { get; set; }
         public String genre { get; set; }
         public String species { get; set; }
         public String breed { get; set; }
@@ -17,5 +17,7 @@ namespace My_Pet.Models
         public int yearBirth { get; set; }
         public String district { get; set; }
         public String description { get; set; }
+        public int userId { get; set; }
+        public User user { get; set; }
     }
 }

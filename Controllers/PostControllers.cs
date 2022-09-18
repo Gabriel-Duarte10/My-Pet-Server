@@ -26,7 +26,7 @@ namespace My_Pet.Controllers
                 for (int i = 1; i <= 10; i++)
                 {
                     await _context.Adoption.AddAsync(new Models.Adoption(){
-                        namePet = "Pet Adoption " + i,
+                        name = "Pet Adoption " + i,
                         genre = "Macho Adoption " + i,
                         breed = "Raça Adoption " + i,
                         size = "Tamanho Adoption " + i,
@@ -36,7 +36,7 @@ namespace My_Pet.Controllers
                         description = "Descrição Adoption " + i
                     });
                     await _context.Lost.AddAsync(new Models.Lost(){
-                        namePet = "Pet Lost " + i,
+                        name = "Pet Lost " + i,
                         genre = "Macho Lost " + i,
                         breed = "Raça Lost " + i,
                         size = "Tamanho Lost " + i,
@@ -46,7 +46,7 @@ namespace My_Pet.Controllers
                         description = "Descrição Lost " + i
                     });
                     await _context.Reproduction.AddAsync(new Models.Reproduction(){
-                        namePet = "Pet reproduction " + i,
+                        name = "Pet reproduction " + i,
                         genre = "Macho reproduction " + i,
                         breed = "Raça reproduction " + i,
                         size = "Tamanho reproduction " + i,
@@ -62,7 +62,7 @@ namespace My_Pet.Controllers
                         description = "Descrição rescue " + i
                     });
                     await _context.Sale.AddAsync(new Models.Sale(){
-                        namePet = "Pet Sale " + i,
+                        name = "Pet Sale " + i,
                         genre = "Macho Sale " + i,
                         breed = "Raça Sale " + i,
                         size = "Tamanho Sale " + i,
@@ -73,7 +73,7 @@ namespace My_Pet.Controllers
                         description = "Descrição Sale " + i
                     });
                     await _context.Announcement.AddAsync(new Models.Announcement(){
-                        nameAnno = "Anuncio " + i,
+                        name = "Anuncio " + i,
                         phoneAnno = "Telefone " + i,
                         emailAnno = "Email " + i,
                         districAnno = "Bairro " + i,

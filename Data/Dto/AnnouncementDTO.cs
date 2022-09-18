@@ -8,7 +8,7 @@ namespace My_Pet.Data.Dto
     public class AnnouncementDTO
     {
         public int id { get; set; }
-        public String nameAnno { get; set; }
+        public String name { get; set; }
         public String phoneAnno { get; set; }
         public String emailAnno { get; set; }
         public String districAnno { get; set; }

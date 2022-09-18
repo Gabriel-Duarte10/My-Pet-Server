@@ -7,7 +7,7 @@ namespace My_Pet.Data.Requests
 {
     public class AnnouncementRequest
     {
-        public String nameAnno { get; set; }
+        public String name { get; set; }
         public String phoneAnno { get; set; }
         public String emailAnno { get; set; }
         public String districAnno { get; set; }

@@ -12,5 +12,7 @@ namespace My_Pet.Models
         public String district { get; set; }
         public String road { get; set; }
         public String description { get; set; }
+        public int userId { get; set; }
+        public User user { get; set; }
     }
 }

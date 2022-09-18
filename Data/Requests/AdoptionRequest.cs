@@ -8,7 +8,7 @@ namespace My_Pet.Data.Requests
     public class AdoptionRequest
     {
         public int id { get; set; }
-        public String namePet { get; set; }
+        public String name { get; set; }
         public String species { get; set; }
         public String genre { get; set; }
         public String breed { get; set; }

@@ -7,7 +7,7 @@ namespace My_Pet.Models
 {
     public class AdoptionImage
     {
-        public int idAdoption { get; set; }
+        public int id { get; set; }
         public string urlImageFireBase { get; set; }
         public string nameImageFireBase { get; set; }
     }

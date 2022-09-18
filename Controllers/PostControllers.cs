@@ -23,6 +23,14 @@ namespace My_Pet.Controllers
         {
             try
             {
+                var user =  await _context.User.AddAsync(new Models.User(){
+                    name = "Gabriel Silva Duarte",
+                    email = "gabriel.silvaduarte@hotmail.com",
+                    phone = "21965116166",
+                    password = "08162905",
+                    type = Models.TypeLogin.CreateUser
+                });
+                await _context.SaveChangesAsync();
                 for (int i = 1; i <= 10; i++)
                 {
                     await _context.Adoption.AddAsync(new Models.Adoption(){
@@ -33,7 +41,9 @@ namespace My_Pet.Controllers
                         monthBirth = 1,
                         yearBirth = 2000 + i,
                         district = "Bairro Adoption " + i,
-                        description = "Descrição Adoption " + i
+                        description = "Descrição Adoption " + i,
+                        species = "Especie " + 1,
+                        userId = user.Entity.Id
                     });
                     await _context.Lost.AddAsync(new Models.Lost(){
                         name = "Pet Lost " + i,
@@ -43,7 +53,9 @@ namespace My_Pet.Controllers
                         monthBirth = 2,
                         yearBirth = 2000 + i,
                         district = "Bairro Lost " + i,
-                        description = "Descrição Lost " + i
+                        description = "Descrição Lost " + i,
+                        species = "Especie " + 1,
+                        userId = user.Entity.Id
                     });
                     await _context.Reproduction.AddAsync(new Models.Reproduction(){
                         name = "Pet reproduction " + i,
@@ -53,13 +65,17 @@ namespace My_Pet.Controllers
                         monthBirth = 2,
                         yearBirth = 2000 + i,
                         district = "Bairro reproduction " + i,
-                        description = "Descrição reproduction " + i
+                        description = "Descrição reproduction " + i,
+                        species = "Especie " + 1,
+                        userId = user.Entity.Id
                     });
                     await _context.Rescue.AddAsync(new Models.Rescue(){
                         size = "Tamanho rescue " + i,
                         district = "Bairro rescue " + i,
                         road = "Rua Rescue " + i,
-                        description = "Descrição rescue " + i
+                        description = "Descrição rescue " + i,
+                        species = "Especie " + 1,
+                        userId = user.Entity.Id
                     });
                     await _context.Sale.AddAsync(new Models.Sale(){
                         name = "Pet Sale " + i,
@@ -70,14 +86,17 @@ namespace My_Pet.Controllers
                         monthBirth = 1,
                         yearBirth = 2000 + i,
                         district = "Bairro Sale " + i,
-                        description = "Descrição Sale " + i
+                        description = "Descrição Sale " + i,
+                        species = "Especie " + 1,
+                        userId = user.Entity.Id
                     });
                     await _context.Announcement.AddAsync(new Models.Announcement(){
                         name = "Anuncio " + i,
                         phoneAnno = "Telefone " + i,
                         emailAnno = "Email " + i,
                         districAnno = "Bairro " + i,
-                        description = "Descrição " + i
+                        description = "Descrição " + i,
+                        userId = user.Entity.Id
                     });
                     await _context.SaveChangesAsync();
                 }

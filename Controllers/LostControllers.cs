@@ -8,6 +8,7 @@ using My_Pet.Data.Context;
 using My_Pet.Data.Dto;
 using My_Pet.Data.Interfaces;
 using My_Pet.Data.Requests;
+using My_Pet.Services;
 using static My_Pet.Data.Dto.Commons;
 
 namespace My_Pet.Controllers
@@ -18,10 +19,12 @@ namespace My_Pet.Controllers
     {
         private readonly DataContext _context;
         private readonly ILost _model;
-        public LostControllers(DataContext context, ILost model)
+        private readonly ImageService _imagesService;
+        public LostControllers(DataContext context, ILost model, ImageService imagesService)
         {
              _context = context;
              _model = model;
+             _imagesService = imagesService;
         }
         [HttpPost()]
         public async Task<IActionResult> Post(LostRequest model)
@@ -121,6 +124,47 @@ namespace My_Pet.Controllers
 
             }
             catch (Exception ex)
+            {
+                return this.StatusCode(StatusCodes.Status500InternalServerError,
+                    $"Erro: {ex.Message}");
+            }
+        }
+    
+        [HttpPost("upload")]
+        [RequestSizeLimit(104857600)] // 100MB
+        public async Task<ActionResult> UploadImages(int id, List<IFormFile> files)
+        {
+            var query = await _model.GetById(id);
+            if (query == null) return NotFound();
+            try
+            {
+                var imagesDto = await _model.GetAllImages(id);
+                if(imagesDto.Count > 0)
+                {
+                        _imagesService.DeleteImagesFireBase(imagesDto.Select(x => x.nameImageFireBase).ToList());
+                        await _model.DeleteImages(id);
+                }   
+                var newImages = _imagesService.UploadImageFireBase(files).Result;
+                await _model.PostImages(id, newImages);
+            }
+            catch (Exception e)
+            {
+                return StatusCode(500, e);
+            }
+
+            return Ok();
+        }
+        [HttpGet("images")]
+        public async Task<IActionResult> GetImages(int id)
+        {
+            try
+            {   
+                var query = await _model.GetAllImages(id);
+                if (query == null) return NoContent();
+
+                return Ok(query);
+            }
+             catch (Exception ex)
             {
                 return this.StatusCode(StatusCodes.Status500InternalServerError,
                     $"Erro: {ex.Message}");

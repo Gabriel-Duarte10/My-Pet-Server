@@ -21,7 +21,7 @@ namespace My_Pet.Services
         public ImageService()
         {
         }
-        public async void DeleteImagesFireBase(List<AdoptionImage> images)
+        public async void DeleteImagesFireBase(List<string> imagesNames)
         {
             var secrets = JsonConvert.DeserializeObject<Secrets>(File.ReadAllText("appsettings.json"));
                 
@@ -32,7 +32,7 @@ namespace My_Pet.Services
 
             CancellationTokenSource cancellationToken = new();
 
-            foreach (var i in images)
+            foreach (var i in imagesNames)
             {
                 await new FirebaseStorage(secrets.BucketName,
                 new FirebaseStorageOptions
@@ -41,7 +41,7 @@ namespace My_Pet.Services
                     ThrowOnCancel = true
                 })
                 .Child("images")
-                .Child(i.nameImageFireBase)
+                .Child(i)
                 .DeleteAsync();
             }
         }

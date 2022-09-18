@@ -59,19 +59,28 @@ namespace My_Pet.Data.Repositorio
             await _context.SaveChangesAsync();           
         }
 
-        public Task<List<AnnouncementImage>> GetAllImages(int id)
+        public async Task PostImages(int id, List<ImageDto> imagesDto)
         {
-            throw new NotImplementedException();
+            foreach (var i in imagesDto)
+            {
+                await _context.AnnouncementImage.AddAsync(new AnnouncementImage(){
+                    idAnnouncement = id,
+                    urlImageFireBase = i.UrlImage,
+                    nameImageFireBase = i.NameImage
+                });   
+                await _context.SaveChangesAsync();
+            }
+        }
+        public async Task<List<AnnouncementImage>> GetAllImages(int id)
+        {
+           return await _context.AnnouncementImage.Where(x => x.idAnnouncement == id).ToListAsync();
         }
 
-        public Task DeleteImages(int id)
+        public async Task DeleteImages(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public Task PostImages(int id, List<ImageDto> imagesDto)
-        {
-            throw new NotImplementedException();
+            var images = await _context.AnnouncementImage.Where(x => x.idAnnouncement == id).ToListAsync();
+            _context.AnnouncementImage.RemoveRange(images);
+            await _context.SaveChangesAsync();
         }
     }
 }

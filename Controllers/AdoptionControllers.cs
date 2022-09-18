@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using My_Pet.Data.Context;
@@ -20,11 +21,13 @@ namespace My_Pet.Controllers
         private readonly DataContext _context;
         private readonly IAdoption _model;
         private readonly ImageService _imagesService;
-        public AdoptionControllers(DataContext context, IAdoption model, ImageService imagesService)
+        private readonly IMapper _mapper;
+        public AdoptionControllers(DataContext context, IAdoption model, ImageService imagesService, IMapper mapper)
         {
              _context = context;
              _model = model;
              _imagesService = imagesService;
+             _mapper = mapper;
         }
         [HttpPost()]
         public async Task<IActionResult> Post(AdoptionRequest model)
@@ -131,14 +134,14 @@ namespace My_Pet.Controllers
         [RequestSizeLimit(104857600)] // 100MB
         public async Task<ActionResult> UploadImages(int id, List<IFormFile> files)
         {
-            var adoption = await _model.GetById(id);
-            if (adoption == null) return NotFound();
+            var query = await _model.GetById(id);
+            if (query == null) return NotFound();
             try
             {
                 var imagesDto = await _model.GetAllImages(id);
                 if(imagesDto.Count > 0)
                 {
-                        _imagesService.DeleteImagesFireBase(imagesDto);
+                        _imagesService.DeleteImagesFireBase(imagesDto.Select(x => x.nameImageFireBase).ToList());
                         await _model.DeleteImages(id);
                 }   
                 var newImages = _imagesService.UploadImageFireBase(files).Result;

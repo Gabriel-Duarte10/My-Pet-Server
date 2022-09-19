@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -11,6 +12,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 using My_Pet.Data.Context;
 using My_Pet.Data.Interfaces;
@@ -33,6 +35,18 @@ namespace My_Pet
         {
 
             services.AddControllers();
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+            .AddJwtBearer(options => {
+                options.Authority = "https://securetoken.google.com/mypet-2009f";
+                options.TokenValidationParameters = new TokenValidationParameters
+                {
+                    ValidateIssuer = true,
+                    ValidIssuer = "https://securetoken.google.com/mypet-2009f",
+                    ValidateAudience = true,
+                    ValidAudience = "mypet-2009f",
+                    ValidateLifetime = true
+                };
+            });
             services.AddAutoMapper(typeof(Startup));
             
             services.AddSwaggerGen(c =>
@@ -84,6 +98,7 @@ namespace My_Pet
             app.UseCors("CorsPolicy");
             app.UseRouting();
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>

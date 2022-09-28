@@ -31,6 +31,12 @@ namespace My_Pet.Helpers
             CreateMap<Announcement, AnnouncementRequest>().ReverseMap();
             CreateMap<Announcement, AnnouncementDTO>().ReverseMap();
 
+            CreateMap<User, UserDTO>()
+            .ForMember(d => d.Id, o => o.MapFrom(s => s.Id))
+            .ForMember(d => d.email, o => o.MapFrom(s => s.email))
+            .ForMember(d => d.phone, o => o.MapFrom(s => s.phone))
+            .ForMember(d => d.name, o => o.MapFrom(s => s.name))
+            .ReverseMap();
         }
     }
 }
